@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float _speed;
-    [SerializeField] private float _jumpForce;
+    [SerializeField] private float _speed = 0.3f;
+    [SerializeField] private float _jumpForce = 7f;
     [SerializeField] private LayerMask _groundLayerMask;
     private Rigidbody2D _rigidBody2D;
     private GroundChecker _groundChecker;
@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        _rigidBody2D.velocity = new Vector2(_speed, _rigidBody2D.velocity.y);
+        transform.Translate(Vector2.right * _speed);
         if (Input.GetKeyDown(KeyCode.Space) && _groundChecker.IsGrounded(_groundLayerMask))
         {
             _rigidBody2D.velocity = Vector2.up * _jumpForce;

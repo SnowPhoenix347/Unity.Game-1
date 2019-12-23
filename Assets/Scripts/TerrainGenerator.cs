@@ -8,7 +8,7 @@ public class TerrainGenerator : MonoBehaviour
     [SerializeField] private BoxCollider2D _boxCollider2D;
     [SerializeField] private Transform player;
     private Transform[] _platforms;
-    private float _distanceGenerat = 1f;
+    private float _distanceGenerat = 3f;
 
     private void Start()
     {
@@ -16,6 +16,11 @@ public class TerrainGenerator : MonoBehaviour
     }
 
     private void Update()
+    {
+        MovePlatforms();
+    }
+
+    private void MovePlatforms()
     {
         if (Vector2.Distance(player.position, _platforms[0].position) < _distanceGenerat)
         {
@@ -27,13 +32,13 @@ public class TerrainGenerator : MonoBehaviour
         }
     }
 
-    private Transform[] GeneratePlatforms(Transform[] _platforms)
+    private Transform[] GeneratePlatforms(Transform[] platforms)
     {
-        Transform[] platforms = new Transform[2];
+        Transform[] tempPlatforms = new Transform[2];
         Vector2 _childPlatformPosition = new Vector2(_platform.position.x + _boxCollider2D.size.x, _platform.position.y);
-        platforms[1] = Instantiate(_platform, _platform.position, Quaternion.identity);
-        platforms[0] = Instantiate(_platform, _childPlatformPosition, Quaternion.identity);
+        tempPlatforms[0] = Instantiate(_platform, _childPlatformPosition, Quaternion.identity);
+        tempPlatforms[1] = _platform;
 
-        return platforms;
+        return tempPlatforms;
     }
 }
