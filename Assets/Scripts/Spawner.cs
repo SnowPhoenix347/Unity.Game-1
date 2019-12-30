@@ -7,7 +7,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject[] _gameObjects;
     [SerializeField] private int _randomSetting = 3;
     [SerializeField] private int _coinsCount = 5;
-    [SerializeField] private float _mixSpawnTime = 1f;
+    [SerializeField] private float _minSpawnTime = 1f;
     [SerializeField] private float _maxSpawnTime = 4f;
 
     private void Start()
@@ -19,17 +19,22 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(_mixSpawnTime, _maxSpawnTime));
-            int spawnRandom = Random.Range(0, 10);
+            yield return new WaitForSeconds(Random.Range(_minSpawnTime, _maxSpawnTime));
+            SpawnSelecter(gameObjects);
+        }
+    }
 
-            if  (spawnRandom > _randomSetting)
-            {
-                SpawnTraps(gameObjects); 
-            }
-            else 
-            {
-                StartCoroutine("SpawnCoins", gameObjects);
-            }
+    private void SpawnSelecter(GameObject[] gameObjects)
+    {
+        int spawnRandom = Random.Range(0, 10);
+
+        if (spawnRandom > _randomSetting)
+        {
+            SpawnTraps(gameObjects);
+        }
+        else
+        {
+            StartCoroutine("SpawnCoins", gameObjects);
         }
     }
 

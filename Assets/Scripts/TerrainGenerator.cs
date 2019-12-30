@@ -24,7 +24,7 @@ public class TerrainGenerator : MonoBehaviour
     {
         if (Vector2.Distance(player.position, _platforms[0].position) < _distanceGenerat)
         {
-            _platforms[1].position = new Vector2(_platforms[0].position.x + _boxCollider2D.size.x, 0);
+            _platforms[1].position = new Vector2(_platforms[0].position.x , 0);
         }
         if (Vector2.Distance(player.position, _platforms[1].position) < _distanceGenerat)
         {
