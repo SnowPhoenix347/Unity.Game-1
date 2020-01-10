@@ -10,7 +10,7 @@ public class CoinsCollector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Coin")
+        if (other.GetComponent<Coin>())
         {
             AddCoin();
             ShowCoinsCount(_coinsCount);

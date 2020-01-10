@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private GameObject[] _gameObjects;
+    [SerializeField] private GameObject[] _templates;
     [SerializeField] private int _randomSetting = 3;
     [SerializeField] private int _coinsCount = 5;
     [SerializeField] private float _minSpawnTime = 1f;
@@ -12,40 +12,43 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine("Spawn", _gameObjects);
+        StartCoroutine(SpawnByTime(_templates));
     }
 
-    private IEnumerator Spawn(GameObject[] gameObjects)
+    private IEnumerator SpawnByTime(GameObject[] templates)
     {
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(_minSpawnTime, _maxSpawnTime));
-            SpawnSelecter(gameObjects);
+            SpawnSelecter(templates);
         }
     }
 
-    private void SpawnSelecter(GameObject[] gameObjects)
+    private void SpawnSelecter(GameObject[] templates)
     {
         int spawnRandom = Random.Range(0, 10);
 
         if (spawnRandom > _randomSetting)
         {
-            SpawnTraps(gameObjects);
+            Spawn(templates, 0, 0f);
         }
         else
         {
-            StartCoroutine("SpawnCoins", gameObjects);
+            StartCoroutine(LineSpawn(templates, _coinsCount));
         }
     }
 
-    private IEnumerator SpawnCoins(GameObject[] gameObjects)
+    private IEnumerator LineSpawn(GameObject[] templates, int lineLenght)
     {
-        for (int i = 0; i < _coinsCount; i++)
+        for (int i = 0; i < lineLenght; i++)
         {
             yield return new WaitForSeconds(0.1f);
-            Instantiate(gameObjects[1], new Vector2 (transform.position.x, 1f), transform.rotation);
+            Spawn(templates, 1, 1f);
         }
     }
 
-    private void SpawnTraps(GameObject[] gameObjects) => Instantiate(gameObjects[0], new Vector2(transform.position.x, 0f), transform.rotation);
+    private void Spawn(GameObject[] templates, int IDtemplate, float heightSpawn)
+    {
+        Instantiate(templates[IDtemplate], new Vector2(transform.position.x, heightSpawn), transform.rotation);
+    }
 }

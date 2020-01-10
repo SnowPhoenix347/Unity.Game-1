@@ -96,7 +96,6 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
-    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -406,12 +405,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc63ac3cc916c6459c60b8c4c39c86e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameObjects:
+  _templates:
   - {fileID: 3726798263111343644, guid: b3454ff93c75bc64ea8f448279ffc304, type: 3}
   - {fileID: 14638599123489187, guid: a419c4ae4105095449a4885dd4331844, type: 3}
   _randomSetting: 3
   _coinsCount: 5
-  _mixSpawnTime: 1
+  _minSpawnTime: 1
   _maxSpawnTime: 4
 --- !u!1 &1259907886
 GameObject:
@@ -536,7 +535,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -628,9 +626,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 0.3
   _jumpForce: 7
-  _groundLayerMask:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!114 &1300321297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -643,6 +638,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6872409a347205e4f8b2ede4d9657471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &1300321298
 MonoBehaviour:
   m_ObjectHideFlags: 0

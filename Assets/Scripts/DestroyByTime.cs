@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class GameObjectCleaner : MonoBehaviour
+public class DestroyByTime : MonoBehaviour
 {
     [SerializeField] private float _liveTime = 3f;
 
