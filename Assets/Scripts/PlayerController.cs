@@ -4,7 +4,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(GroundChecker))]
-
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _speed = 0.3f;

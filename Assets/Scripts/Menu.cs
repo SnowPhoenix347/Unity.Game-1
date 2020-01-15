@@ -5,17 +5,17 @@ public class Menu : MonoBehaviour
 {
     [SerializeField] private Animator _creatorsAnimator;
 
-    public void OnPlayPress()
+    public void OnPlayButtonClick()
     {
         SceneManager.LoadScene(1);
     }
 
-    public void OnCreatorsPress()
+    public void OnCreatorsButtonClick()
     {
         _creatorsAnimator.SetBool("IsShow", !_creatorsAnimator.GetBool("IsShow"));
     }
 
-    public void OnExitPress()
+    public void OnExitButtonClick()
     {
         Application.Quit();
     }

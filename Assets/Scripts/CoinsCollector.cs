@@ -10,17 +10,18 @@ public class CoinsCollector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<Coin>())
-        {
-            AddCoin();
-            ShowCoinsCount(_coinsCount);
-            Destroy(other.gameObject);
-        }
+        AddCoin(other);
     }
 
-    private void AddCoin()
+    private void AddCoin(Collider2D coin)
     {
-        _coinsCount++;
+
+        if (coin.GetComponent<Coin>())
+        {
+            _coinsCount++;
+            ShowCoinsCount(_coinsCount);
+            Destroy(coin.gameObject);
+        }
     }
 
     private void ShowCoinsCount(int coins)
