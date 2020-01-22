@@ -15,7 +15,6 @@ public class CoinsCollector : MonoBehaviour
 
     private void AddCoin(Collider2D coin)
     {
-
         if (coin.GetComponent<Coin>())
         {
             _coinsCount++;

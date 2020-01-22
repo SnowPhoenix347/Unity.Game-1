@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private GameObject[] _templates;
+    [SerializeField] private GameObject _coin;
+    [SerializeField] private GameObject _barrier;
     [SerializeField] private int _spawnChange = 30;
     [SerializeField] private int _coinsLineLength = 5;
     [SerializeField] private float _minSpawnTime = 1f;
@@ -13,48 +14,48 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(SpawnByTime(_templates));
+        StartCoroutine(SpawnByTime(_coin, _barrier));
     }
 
-    private IEnumerator SpawnByTime(GameObject[] templates)
+    private IEnumerator SpawnByTime(GameObject coin, GameObject barrier)
     {
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(_minSpawnTime, _maxSpawnTime));
-            SpawnRandomTemplate(templates);
+            SpawnRandomTemplate(coin, barrier);
         }
     }
 
-    private void SpawnRandomTemplate(GameObject[] templates)
+    private void SpawnRandomTemplate(GameObject coin, GameObject barrier)
     {
         if (Random.Range(0, 100) > _spawnChange)
         {
-            Spawn(templates, 0, 0f);
+            Spawn(barrier, 0f);
         }
         else
         {
-            SpawnSomeTemplates(templates, _coinsLineLength, 1, 1f);
+            SpawnSomeTemplates(coin, _coinsLineLength, 1f);
         }
     }
 
-    private void SpawnSomeTemplates(GameObject[] templates, int countTemplates, int IDtemplate, float heightSpawn)
+    private void SpawnSomeTemplates(GameObject template, int countTemplates, float heightSpawn)
     {
         float spawnPositionX = transform.position.x;
         for (int i = 0; i < countTemplates; i++)
         {
             spawnPositionX += distanceBetweenTemplates;
-            Spawn(templates, IDtemplate, heightSpawn, spawnPositionX);
+            Spawn(template, heightSpawn, spawnPositionX);
         }
     }
 
-    private void Spawn(GameObject[] templates, int IDtemplate, float heightSpawn)
+    private void Spawn(GameObject template, float heightSpawn)
     {
-        Instantiate(templates[IDtemplate], new Vector2(transform.position.x, heightSpawn), transform.rotation);
+        Instantiate(template, new Vector2(transform.position.x, heightSpawn), transform.rotation);
     }
 
-    private void Spawn(GameObject[] templates, int IDtemplate, float heightSpawn, float spawnPositionX)
+    private void Spawn(GameObject template, float heightSpawn, float spawnPositionX)
     {
-        Instantiate(templates[IDtemplate], new Vector2(spawnPositionX, heightSpawn), transform.rotation);
+        Instantiate(template, new Vector2(spawnPositionX, heightSpawn), transform.rotation);
     }
 
     #region MonoBehavior

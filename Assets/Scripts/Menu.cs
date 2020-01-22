@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    [SerializeField] private Animator _creatorsAnimator;
+    [SerializeField] private Animator _creators;
 
     public void OnPlayButtonClick()
     {
@@ -12,7 +12,7 @@ public class Menu : MonoBehaviour
 
     public void OnCreatorsButtonClick()
     {
-        _creatorsAnimator.SetBool("IsShow", !_creatorsAnimator.GetBool("IsShow"));
+        _creators.SetBool("IsShow", !_creators.GetBool("IsShow"));
     }
 
     public void OnExitButtonClick()

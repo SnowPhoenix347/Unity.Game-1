@@ -405,13 +405,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc63ac3cc916c6459c60b8c4c39c86e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _templates:
-  - {fileID: 3726798263111343644, guid: b3454ff93c75bc64ea8f448279ffc304, type: 3}
-  - {fileID: 14638599123489187, guid: a419c4ae4105095449a4885dd4331844, type: 3}
-  _randomSetting: 3
-  _coinsCount: 5
+  _coin: {fileID: 14638599123489187, guid: a419c4ae4105095449a4885dd4331844, type: 3}
+  _barrier: {fileID: 3726798263111343644, guid: b3454ff93c75bc64ea8f448279ffc304,
+    type: 3}
+  _spawnChange: 30
+  _coinsLineLength: 5
   _minSpawnTime: 1
   _maxSpawnTime: 4
+  distanceBetweenTemplates: 2
 --- !u!1 &1259907886
 GameObject:
   m_ObjectHideFlags: 0

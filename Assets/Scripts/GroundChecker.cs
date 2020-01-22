@@ -15,8 +15,8 @@ public class GroundChecker : MonoBehaviour
 
     public bool IsGrounded()
     {
-        RaycastHit2D rayCastHit2D = Physics2D.BoxCast(_boxCollider2D.bounds.center, _boxCollider2D.bounds.size, 0f, Vector2.down, 0.1f, _groundLayerMask);
+        Collider2D rayCastCollider2D = Physics2D.OverlapBox(_boxCollider2D.bounds.center, _boxCollider2D.bounds.size, 0f, _groundLayerMask);
 
-        return rayCastHit2D.collider != null;
+        return rayCastCollider2D != null;
     }
 }
