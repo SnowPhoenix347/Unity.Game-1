@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject _coin;
-    [SerializeField] private GameObject _barrier;
+    [SerializeField] private GameObject _trap;
     [SerializeField] private int _spawnChange = 30;
     [SerializeField] private int _coinsLineLength = 5;
     [SerializeField] private float _minSpawnTime = 1f;
@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(SpawnByTime(_coin, _barrier));
+        StartCoroutine(SpawnByTime(_coin, _trap));
     }
 
     private IEnumerator SpawnByTime(GameObject coin, GameObject barrier)
