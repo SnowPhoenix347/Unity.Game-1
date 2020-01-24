@@ -9,12 +9,12 @@ public class OnDeath : MonoBehaviour
 
     private void OnEnable()
     {
-        _checker.OnTrapTriggered.AddListener(Death);
+        _checker.OnTrapTriggered += Death;
     }
 
     private void OnDisable()
     {
-        _checker.OnTrapTriggered.RemoveListener(Death);
+        _checker.OnTrapTriggered += Death;
     }
 
     private void Death()

@@ -5,19 +5,30 @@ using UnityEngine.Events;
 
 public class TemplateCheckerOnEntering : MonoBehaviour
 {
-    public UnityEvent OnCoinCollected;
-    public UnityEvent OnTrapTriggered;
+    [SerializeField] private UnityEvent _onCoinCollected;
+    [SerializeField] private UnityEvent _onTrapTriggered;
+
+    public event UnityAction OnCoinCollected
+    {
+        add => _onCoinCollected.AddListener(value);
+        remove => _onCoinCollected.RemoveListener(value);
+    }
+    public event UnityAction OnTrapTriggered
+    {
+        add => _onTrapTriggered.AddListener(value);
+        remove => _onTrapTriggered.RemoveListener(value);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.GetComponent<Coin>())
         {
-            OnCoinCollected.Invoke();
+            _onCoinCollected.Invoke();
             Destroy(other.gameObject);
         }
         else if(other.GetComponent<Trap>())
         {
-            OnTrapTriggered.Invoke();
+            _onTrapTriggered.Invoke();
         }
     }
 }

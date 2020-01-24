@@ -17,28 +17,28 @@ public class Spawner : MonoBehaviour
         StartCoroutine(SpawnByTime(_coin, _trap));
     }
 
-    private IEnumerator SpawnByTime(GameObject coin, GameObject barrier)
+    private IEnumerator SpawnByTime(GameObject coin, GameObject trap)
     {
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(_minSpawnTime, _maxSpawnTime));
-            SpawnRandomTemplate(coin, barrier);
+            SpawnRandomTemplate(coin, trap);
         }
     }
 
-    private void SpawnRandomTemplate(GameObject coin, GameObject barrier)
+    private void SpawnRandomTemplate(GameObject coin, GameObject trap)
     {
         if (Random.Range(0, 100) > _spawnChange)
         {
-            Spawn(barrier, 0f);
+            Spawn(trap, 0f);
         }
         else
         {
-            SpawnSomeTemplates(coin, _coinsLineLength, 1f);
+            SpawnTemplate(coin, _coinsLineLength, 1f);
         }
     }
 
-    private void SpawnSomeTemplates(GameObject template, int countTemplates, float heightSpawn)
+    private void SpawnTemplate(GameObject template, int countTemplates, float heightSpawn)
     {
         float spawnPositionX = transform.position.x;
         for (int i = 0; i < countTemplates; i++)
