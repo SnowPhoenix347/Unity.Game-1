@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TerrainGenerator : MonoBehaviour
@@ -25,11 +26,12 @@ public class TerrainGenerator : MonoBehaviour
     {
         if (Vector2.Distance(player.position, _platforms[0].position) < _distanceGenerate)
         {
-            _platforms[1].position = new Vector2(_platforms[0].position.x , 0);
-        }
-        if (Vector2.Distance(player.position, _platforms[1].position) < _distanceGenerate)
-        {
-            _platforms[0].position = new Vector2(_platforms[1].position.x + _boxCollider2D.size.x, 0);
+            _platforms[1].position = new Vector2(_platforms[0].position.x + _boxCollider2D.size.x, 0);
+
+            Transform tempPlatform;
+            tempPlatform = _platforms[0];
+            _platforms[0] = _platforms[1];
+            _platforms[1] = tempPlatform;
         }
     }
 
