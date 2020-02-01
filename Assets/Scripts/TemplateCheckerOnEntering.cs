@@ -8,12 +8,12 @@ public class TemplateCheckerOnEntering : MonoBehaviour
     [SerializeField] private UnityEvent _onCoinCollected;
     [SerializeField] private UnityEvent _onTrapTriggered;
 
-    public event UnityAction OnCoinCollected
+    public event UnityAction CoinCollected
     {
         add => _onCoinCollected.AddListener(value);
         remove => _onCoinCollected.RemoveListener(value);
     }
-    public event UnityAction OnTrapTriggered
+    public event UnityAction TrapTriggered
     {
         add => _onTrapTriggered.AddListener(value);
         remove => _onTrapTriggered.RemoveListener(value);

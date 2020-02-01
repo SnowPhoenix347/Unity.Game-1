@@ -14,12 +14,12 @@ public class CoinsCounter : MonoBehaviour
 
     private void OnEnable()
     {
-        _checker.OnCoinCollected += AddCoin;
+        _checker.CoinCollected += AddCoin;
     }
 
     private void OnDisable()
     {
-        _checker.OnCoinCollected -= AddCoin;
+        _checker.CoinCollected -= AddCoin;
     }
 
     private void AddCoin()
