@@ -19,7 +19,7 @@ public class CoinsCounter : MonoBehaviour
 
     private void OnDisable()
     {
-        _checker.OnCoinCollected += AddCoin;
+        _checker.OnCoinCollected -= AddCoin;
     }
 
     private void AddCoin()
