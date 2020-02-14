@@ -52,19 +52,13 @@ public class Spawner : MonoBehaviour
         if (_templates.Length > _templatesLength.Length)
         {
             int[] tempArr = new int[_templates.Length];
-            for (int i = 0; i < _templatesLength.Length; i++)
-            {
-                tempArr[i] = _templatesLength[i];
-            }
+            System.Array.Copy(_templatesLength, tempArr, _templatesLength.Length);
             _templatesLength = tempArr;
         }
         else if (_templates.Length < _templatesLength.Length)
         {
             int[] tempArr = new int[_templates.Length];
-            for (int i = 0; i < _templates.Length; i++)
-            {
-                tempArr[i] = _templatesLength[i];
-            }
+            System.Array.Copy(_templatesLength, tempArr, _templates.Length);
             _templatesLength = tempArr;
         }
     }
