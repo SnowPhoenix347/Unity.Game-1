@@ -8,21 +8,21 @@ using System;
 public class CoinsCounter : MonoBehaviour
 {
     [SerializeField] private Text _coinCountText;
-    [SerializeField] private TemplateCheckerOnEntering _checker;
+    [SerializeField] private EnvironmentTrigger _trigger;
 
     private int _coinsCount = 0;
 
     private void OnEnable()
     {
-        _checker.CoinCollected += AddCoin;
+        _trigger.CoinCollecting += OnCoinCollecting;
     }
 
     private void OnDisable()
     {
-        _checker.CoinCollected -= AddCoin;
+        _trigger.CoinCollecting -= OnCoinCollecting;
     }
 
-    private void AddCoin()
+    private void OnCoinCollecting()
     {
         _coinsCount++;
         ShowCoinsCount(_coinsCount);

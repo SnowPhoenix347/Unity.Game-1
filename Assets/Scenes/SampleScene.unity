@@ -415,10 +415,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc63ac3cc916c6459c60b8c4c39c86e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coin: {fileID: 14638599123489187, guid: a419c4ae4105095449a4885dd4331844, type: 3}
-  _trap: {fileID: 3726798263111343644, guid: b3454ff93c75bc64ea8f448279ffc304, type: 3}
-  _spawnChange: 30
-  _coinsLineLength: 5
+  _templates:
+  - {fileID: 3726798263111343644, guid: b3454ff93c75bc64ea8f448279ffc304, type: 3}
+  - {fileID: 14638599123489187, guid: a419c4ae4105095449a4885dd4331844, type: 3}
+  _templatesLength: 0100000005000000
   _minSpawnTime: 1
   _maxSpawnTime: 4
   distanceBetweenTemplates: 2
@@ -590,7 +590,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1300321291}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.61, y: 0.7, z: 0}
+  m_LocalPosition: {x: -9.605, y: 0.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 519420032}
@@ -666,7 +666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coinCountText: {fileID: 1366205308}
-  _checker: {fileID: 1300321299}
+  _trigger: {fileID: 1300321299}
 --- !u!114 &1300321299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -676,15 +676,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1300321291}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2aad681061d8937489f653a45817d55b, type: 3}
+  m_Script: {fileID: 11500000, guid: 15031a16302632b4d96ed897ab1dbbc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _onCoinCollected:
-    m_PersistentCalls:
-      m_Calls: []
-  _onTrapTriggered:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1300321300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -697,7 +691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89d405e3b137d544eaf1b925f2f94b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _checker: {fileID: 1300321299}
+  _trigger: {fileID: 1300321299}
 --- !u!1 &1366205307
 GameObject:
   m_ObjectHideFlags: 0

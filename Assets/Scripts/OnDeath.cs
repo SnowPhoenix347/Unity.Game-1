@@ -5,19 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class OnDeath : MonoBehaviour
 {
-    [SerializeField] private TemplateCheckerOnEntering _checker;
+    [SerializeField] private EnvironmentTrigger _trigger;
 
     private void OnEnable()
     {
-        _checker.OnTrapTriggered += Death;
+        _trigger.TrapTriggered += OnTrapTriggered;
     }
 
     private void OnDisable()
     {
-        _checker.OnTrapTriggered += Death;
+        _trigger.TrapTriggered += OnTrapTriggered;
     }
 
-    private void Death()
+    private void OnTrapTriggered()
     {
         SceneManager.LoadScene(1);
     }

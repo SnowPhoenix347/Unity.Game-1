@@ -17,13 +17,17 @@ public class PlayerController : MonoBehaviour
         _rigidBody2D = GetComponent<Rigidbody2D>();
         _groundChecker = GetComponent<GroundChecker>();
     }
-    private void FixedUpdate()
+
+    private void Update()
     {
-        transform.Translate(Vector2.right * _speed);
         if (Input.GetKeyDown(KeyCode.Space) && _groundChecker.IsGrounded())
         {
             Jump();
         }
+    }
+    private void FixedUpdate()
+    {
+        transform.Translate(Vector2.right * _speed);
     }
     private void Jump()
     {
