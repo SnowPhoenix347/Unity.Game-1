@@ -47,10 +47,26 @@ public class Spawner : MonoBehaviour
     }
 
     #region MonoBehavior
-    /*private void OnValidate()
+    private void OnValidate()
     {
-        if (_spawnChange < 0) _spawnChange = 0;
-        else if (_spawnChange > 100) _spawnChange = 100;
-    }*/
+        if (_templates.Length > _templatesLength.Length)
+        {
+            int[] tempArr = new int[_templates.Length];
+            for (int i = 0; i < _templatesLength.Length; i++)
+            {
+                tempArr[i] = _templatesLength[i];
+            }
+            _templatesLength = tempArr;
+        }
+        else if (_templates.Length < _templatesLength.Length)
+        {
+            int[] tempArr = new int[_templates.Length];
+            for (int i = 0; i < _templates.Length; i++)
+            {
+                tempArr[i] = _templatesLength[i];
+            }
+            _templatesLength = tempArr;
+        }
+    }
     #endregion
 }
