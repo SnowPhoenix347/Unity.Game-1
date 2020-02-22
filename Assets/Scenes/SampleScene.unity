@@ -397,6 +397,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c11bd7b65b71c7049b0af2103a4e1158, type: 3}
+--- !u!1 &1007382904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1007382905}
+  m_Layer: 0
+  m_Name: Template
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1007382905
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007382904}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.185128, y: 1.2034103, z: -0.041503906}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1143605423 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4758639012206972795, guid: c11bd7b65b71c7049b0af2103a4e1158,
@@ -416,12 +446,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _templates:
-  - {fileID: 3726798263111343644, guid: b3454ff93c75bc64ea8f448279ffc304, type: 3}
-  - {fileID: 14638599123489187, guid: a419c4ae4105095449a4885dd4331844, type: 3}
-  _templatesLength: 0100000005000000
+  - {fileID: 0}
+  - {fileID: 0}
   _minSpawnTime: 1
   _maxSpawnTime: 4
-  distanceBetweenTemplates: 2
+  _distanceBetweenTemplates: 2
 --- !u!1 &1259907886
 GameObject:
   m_ObjectHideFlags: 0
